@@ -11,6 +11,7 @@
 * 📦 Migración del gestor de paquetes a **pnpm** (npm sigue siendo compatible)
 * 📁 El cliente de Prisma ahora se genera en `prisma/generated`
 * ⚙️ Control explícito de migraciones mediante `prisma.config.ts`
+* 🧩 Soporte para **múltiples archivos de schema** en Prisma (`multi-schema`)
 
 ---
 
@@ -168,6 +169,16 @@ docker-compose up -d
 
 ## 📂 Estructura del proyecto
 
+````bash
+📦 src
+ ┣ 📂 prisma/                # Configuración general de Prisma
+ ┣ 📂 prisma/generated       # Cliente generado de Prisma
+ ┣ 📂 prisma/schema          # Schemas de Prisma (multi-schema)
+ ┃ ┣ 📜 schema.prisma        # Schema principal
+ ┃ ┣ 📜 *.prisma             # Schemas adicionales
+ ┣ 📜 app.module.ts          # Módulo principal
+ ┣ 📜 main.ts                # Punto de entrada
+ ┗ 📜 .env.example           # Ejemplo de variables de entorno
 ```bash
 📦 src
  ┣ 📂 prisma/           # Configuración y schema de Prisma
@@ -175,7 +186,7 @@ docker-compose up -d
  ┣ 📜 app.module.ts     # Módulo principal
  ┣ 📜 main.ts           # Punto de entrada
  ┗ 📜 .env.example      # Ejemplo de variables de entorno
-```
+````
 
 ---
 
@@ -187,4 +198,3 @@ docker-compose up -d
 * Usa pnpm para una mejor performance y consistencia
 
 ---
-
