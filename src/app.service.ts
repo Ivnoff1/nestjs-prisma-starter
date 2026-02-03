@@ -4,19 +4,14 @@ import { CreateProductDto } from './dto/create-product.dto';
 
 @Injectable()
 export class AppService {
+  constructor(private readonly prisma: PrismaService) {}
 
-  constructor(
-    private readonly prisma: PrismaService
-  ){}
-
-
-  createProduct({name, description} : CreateProductDto) {
+  createProduct({ name, description }: CreateProductDto) {
     return this.prisma.product.create({
       data: {
         name,
-        description
-      }
+        description,
+      },
     });
   }
-
 }
